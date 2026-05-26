@@ -101,6 +101,7 @@ vendor/bin/phpunit
 | [signedlog](./signedlog/) | Signed URLs | [signed-urls.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/signed-urls.md) |
 | [sluglog](./sluglog/) | Slug Management | [slug-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/slug-management.md) |
 | [meterlog](./meterlog/) | API Usage Metering | [api-usage-metering.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-usage-metering.md) |
+| [grantlog](./grantlog/) | Delegated Access Grants | [delegated-access-grants.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/delegated-access-grants.md) |
 | [softdeletelog](./softdeletelog/) | Soft Delete | [soft-delete.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/soft-delete.md) |
 | [stepflowlog](./stepflowlog/) | Multi-step Workflow | [multi-step-workflow.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-step-workflow.md) |
 | [taglog](./taglog/) | Tagging System (M:N) | [tagging-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/tagging-system.md) |
