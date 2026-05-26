@@ -86,6 +86,7 @@ vendor/bin/phpunit
 | [pointlog](./pointlog/) | Point / Loyalty System | [point-loyalty-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/point-loyalty-system.md) |
 | [preflog](./preflog/) | User Preferences | [user-preferences-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-preferences-management.md) |
 | [profilelog](./profilelog/) | User Profile Management | [user-profile-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-profile-management.md) |
+| [pubschedulelog](./pubschedulelog/) | Content Scheduling (Time-Based Publish) | [content-scheduling.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-scheduling.md) |
 | [pwdlog](./pwdlog/) | Password Hashing | [password-hashing.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-hashing.md) |
 | [queuelog](./queuelog/) | Job Queue | [job-queue.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/job-queue.md) |
 | [ranklog](./ranklog/) | Leaderboard Ranking | [leaderboard-ranking-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/leaderboard-ranking-system.md) |
