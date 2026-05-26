@@ -93,6 +93,7 @@ vendor/bin/phpunit
 | [rbaclog](./rbaclog/) | RBAC | [rbac.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/rbac.md) |
 | [refreshlog](./refreshlog/) | JWT Refresh Token Rotation | [refresh-token-rotation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/refresh-token-rotation.md) |
 | [reportlog](./reportlog/) | Content Moderation | [content-report-moderation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-report-moderation.md) |
+| [relatedlog](./relatedlog/) | Content Relations (Typed M:N Links) | [content-relations.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-relations.md) |
 | [resetlog](./resetlog/) | Password Reset | [password-reset.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-reset.md) |
 | [reviewlog](./reviewlog/) | Product Reviews | [product-review-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/product-review-system.md) |
 | [salelog](./salelog/) | Flash Sale | [flash-sale-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/flash-sale-system.md) |
