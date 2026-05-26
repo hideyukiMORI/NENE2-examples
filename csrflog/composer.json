@@ -1,0 +1,35 @@
+{
+    "name": "ft/csrflog",
+    "description": "FT99: CSRF-like patterns — Origin validation, double-submit prevention, idempotency tokens",
+    "type": "project",
+    "require": {
+        "php": ">=8.4.1",
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "phpstan/phpstan": "^2",
+        "friendsofphp/php-cs-fixer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Csrf\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Csrf\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always",
+        "analyse": "phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "check": ["@cs", "@analyse", "@test"]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

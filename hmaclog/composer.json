@@ -1,0 +1,32 @@
+{
+    "name": "hmaclog/hmaclog",
+    "description": "FT104 — Webhook signature verification: HMAC-SHA256, timing-safe comparison, replay attack prevention",
+    "type": "project",
+    "require": {
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "phpstan/phpstan": "^2",
+        "friendsofphp/php-cs-fixer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmac\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hmac\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "analyse": "vendor/bin/phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "vendor/bin/php-cs-fixer fix",
+        "check": ["@cs", "@analyse", "@test"]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

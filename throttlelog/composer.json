@@ -1,0 +1,34 @@
+{
+    "name": "ft/throttlelog",
+    "description": "FT107 — Rate limiting with ThrottleMiddleware",
+    "type": "project",
+    "require": {
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "phpstan/phpstan": "^2",
+        "friendsofphp/php-cs-fixer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Throttle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Throttle\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "analyse": "vendor/bin/phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "vendor/bin/php-cs-fixer check --diff --allow-risky=yes",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "check": [
+            "@test",
+            "@analyse",
+            "@cs"
+        ]
+    }
+}

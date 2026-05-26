@@ -1,0 +1,30 @@
+{
+    "name": "fieldtrial/cachelog",
+    "description": "FT161 — Application Caching API（Cache-Aside・TTL・キャッシュ無効化・統計）",
+    "type": "project",
+    "require": {
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CacheLog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CacheLog\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "check": ["@test", "@analyse", "@cs"]
+    }
+}

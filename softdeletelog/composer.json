@@ -1,0 +1,32 @@
+{
+    "name": "softdeletelog/softdeletelog",
+    "description": "FT62 — Soft delete / trash bin: deleted_at column, restore, permanent purge",
+    "type": "project",
+    "require": {
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.1",
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.95"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoftDelete\\": "src/SoftDelete/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SoftDelete\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "analyse": "vendor/bin/phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "vendor/bin/php-cs-fixer fix",
+        "check": ["@cs", "@analyse", "@test"]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
