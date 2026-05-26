@@ -61,6 +61,7 @@ vendor/bin/phpunit
 | [followlog](./followlog/) | User Follow System | [user-follow-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-follow-system.md) |
 | [geoloclog](./geoloclog/) | Geolocation | [geolocation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/geolocation.md) |
 | [grouplog](./grouplog/) | Group Membership | [group-membership-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/group-membership-management.md) |
+| [hierarchylog](./hierarchylog/) | Hierarchical Data (Materialized Path) | [hierarchical-data.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/hierarchical-data.md) |
 | [hmaclog](./hmaclog/) | Webhook Signature Verification | [webhook-signature.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/webhook-signature.md) |
 | [importlog](./importlog/) | CSV Bulk Import | [csv-bulk-import.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/csv-bulk-import.md) |
 | [inboundlog](./inboundlog/) | Inbound Webhook Receiver | [inbound-webhook-receiver.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/inbound-webhook-receiver.md) |
