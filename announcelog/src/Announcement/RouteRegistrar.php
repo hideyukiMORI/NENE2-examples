@@ -134,11 +134,12 @@ class RouteRegistrar
             }
         }
 
-        $startsAt = $this->utcIso($body['starts_at'] ?? null);
+        // V::isoDatetime は ^1.5.327 でオフセット範囲チェック済み（+25:00 等を拒否、#1352）。
+        $startsAt = V::isoDatetime($body['starts_at'] ?? null);
         if ($startsAt === null) {
             $errors[] = new ValidationError('starts_at', 'starts_at must be an ISO 8601 datetime with ±HH:MM offset', 'invalid_value');
         }
-        $endsAt = $this->utcIso($body['ends_at'] ?? null);
+        $endsAt = V::isoDatetime($body['ends_at'] ?? null);
         if ($endsAt === null) {
             $errors[] = new ValidationError('ends_at', 'ends_at must be an ISO 8601 datetime with ±HH:MM offset', 'invalid_value');
         }
@@ -155,24 +156,6 @@ class RouteRegistrar
         // Reaching here means $errors is empty, so every field validated.
         assert($startsAt !== null && $endsAt !== null);
         return ['title' => $title, 'body' => $text, 'priority' => $priority, 'starts_at' => $startsAt, 'ends_at' => $endsAt];
-    }
-
-    /**
-     * Validate an ISO 8601 datetime and reject offsets outside ±14:00.
-     * (Released V::isoDatetime (1.5.323) accepts e.g. "+25:00".)
-     */
-    private function utcIso(mixed $raw): ?string
-    {
-        $iso = V::isoDatetime($raw);
-        if ($iso === null) {
-            return null;
-        }
-        $offsetHours = (int) substr($iso, -5, 2);
-        $offsetMinutes = (int) substr($iso, -2);
-        if ($offsetHours > 14 || $offsetMinutes > 59 || ($offsetHours === 14 && $offsetMinutes > 0)) {
-            return null;
-        }
-        return $iso;
     }
 
     private function after(string $a, string $b): bool

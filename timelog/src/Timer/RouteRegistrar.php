@@ -124,14 +124,10 @@ class RouteRegistrar
         if ($raw === null) {
             return $this->now();
         }
+        // V::isoDatetime は ^1.5.327 でオフセット範囲チェック済み（+25:00 等を拒否、#1352）。
         $iso = V::isoDatetime($raw);
         if ($iso === null) {
             throw new ValidationException([new ValidationError($field, "{$field} must be ISO 8601 with ±HH:MM offset", 'invalid_value')]);
-        }
-        $offsetHours = (int) substr($iso, -5, 2);
-        $offsetMinutes = (int) substr($iso, -2);
-        if ($offsetHours > 14 || $offsetMinutes > 59 || ($offsetHours === 14 && $offsetMinutes > 0)) {
-            throw new ValidationException([new ValidationError($field, "{$field} offset out of range", 'invalid_value')]);
         }
         return $iso;
     }

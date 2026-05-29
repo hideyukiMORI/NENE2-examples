@@ -42,7 +42,9 @@ class RouteRegistrar
             throw new ValidationException([new ValidationError('title', 'title must be a non-empty string', 'invalid_value')]);
         }
         $now = (new \DateTimeImmutable())->format(DATE_ATOM);
-        $remindAt = $this->futureIso($body['remind_at'] ?? null, $now);
+        // V::futureDatetime は ^1.5.327 で instant 比較 + オフセット範囲チェック済み
+        // （旧版の文字列比較・範囲チェック欠落バグは #1352 で修正）。
+        $remindAt = V::futureDatetime($body['remind_at'] ?? null, $now);
         if ($remindAt === null) {
             throw new ValidationException([new ValidationError('remind_at', 'remind_at must be a future ISO 8601 datetime with ±HH:MM offset', 'invalid_value')]);
         }
@@ -93,35 +95,6 @@ class RouteRegistrar
         return $this->json->create($this->view((array) $this->repo->findOwned($id, $userId)));
     }
 
-    /**
-     * Correct future check: compare as DateTimeImmutable so different offsets
-     * are normalised to the same instant before comparing.
-     *
-     * NB: released `V::futureDatetime()` (1.5.323) compares the ATOM *strings*,
-     * which is wrong across timezone offsets — so we validate the format with
-     * `V::isoDatetime()` and do the chronological comparison here. A fix for the
-     * core helper is filed separately.
-     */
-    private function futureIso(mixed $raw, string $now): ?string
-    {
-        $iso = V::isoDatetime($raw);
-        if ($iso === null) {
-            return null;
-        }
-        // Released V::isoDatetime (1.5.323) does not range-check the offset, so
-        // "+25:00" passes its regex. Reject offsets beyond ±14:00 here.
-        $offsetHours = (int) substr($iso, -5, 2);
-        $offsetMinutes = (int) substr($iso, -2);
-        if ($offsetHours > 14 || $offsetMinutes > 59 || ($offsetHours === 14 && $offsetMinutes > 0)) {
-            return null;
-        }
-        $dt = \DateTimeImmutable::createFromFormat(DATE_ATOM, $iso);
-        $nowDt = \DateTimeImmutable::createFromFormat(DATE_ATOM, $now);
-        if ($dt === false || $nowDt === false) {
-            return null;
-        }
-        return $dt > $nowDt ? $iso : null;
-    }
 
     /**
      * @param array<string, mixed> $r

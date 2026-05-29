@@ -31,14 +31,15 @@ Stubs → status (all ✅, committed+pushed to `main`):
 **Next workstream → re-run the dir-vs-howto gap scan** (see Coverage below) to find
 the next genuinely-uncovered howto topics and build them in FT order.
 
-**NENE2 core bug found & FIXED (#1352, merged):** released `V::futureDatetime()`
-(1.5.323) compared ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
-did not range-check the offset (`+25:00` passed its regex). Fixed upstream in
-**#1352** (instant comparison + `±14:00` offset bound). `reminderlog`, `consentlog`,
-`announcelog`, `reservationlog`, `timelog` keep their in-app workarounds **until a
-release ships the fix** (examples depend on the released `^1.5`, currently 1.5.323 on
-Packagist — the fix is on `main` but unreleased). Once a release ≥ the fix is on
-Packagist, the in-app offset/instant workarounds can be removed.
+**NENE2 core bug FIXED & SHIPPED (#1352 → v1.5.327):** released `V::futureDatetime()`
+compared ATOM *strings* (wrong across TZ offsets); `V::isoDatetime()` did not
+range-check the offset (`+25:00` passed). Fixed in **#1352** (instant comparison +
+`±14:00` bound), released as **v1.5.327** (on Packagist). The in-app workarounds in
+`reminderlog` (`futureIso`), `announcelog` (`utcIso`), `reservationlog` (`iso`),
+`timelog` (`isoOrNow` offset guard) have been **RETIRED** — those examples now call
+`V::isoDatetime()` / `V::futureDatetime()` directly and pin `^1.5.327`. (`consentlog`
+never had a datetime workaround — earlier note was wrong.) Verified: all four green on
+1.5.327.
 
 **Per stub recipe (kept for reference):** read its `README.md` (spec + ATK/VULN
 table), build `composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the
@@ -127,10 +128,11 @@ a dedicated example. Otherwise the backfill is complete.
   Found by `timelog`.
 - **#1350 (merged)** sqlite-fts5-search "implicit OR" → actually **implicit AND**.
   Found by `ftslog`.
-- **#1352 (merged)** `V::isoDatetime` accepted out-of-range offsets (`+25:00`) and
-  `V::futureDatetime` compared ATOM strings (wrong across offsets) → offset bound +
-  instant comparison. Found by `reminderlog`. **In-app workarounds stay until the fix
-  ships in a Packagist release** (examples pin released `^1.5`).
+- **#1352 → v1.5.327 (released)** `V::isoDatetime` accepted out-of-range offsets
+  (`+25:00`) and `V::futureDatetime` compared ATOM strings (wrong across offsets) →
+  offset bound + instant comparison. Found by `reminderlog`. **Workarounds RETIRED**:
+  `reminderlog`/`announcelog`/`reservationlog`/`timelog` now use the fixed `V` helpers
+  directly and pin `^1.5.327` (all green on 1.5.327).
 
 The gap scan that produces candidates:
 ```bash

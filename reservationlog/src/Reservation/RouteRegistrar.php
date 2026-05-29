@@ -73,8 +73,9 @@ class RouteRegistrar
         }
         $body = (array) ($request->getParsedBody() ?? []);
 
-        $startsAt = $this->iso($body['starts_at'] ?? null);
-        $endsAt = $this->iso($body['ends_at'] ?? null);
+        // V::isoDatetime は ^1.5.327 でオフセット範囲チェック済み（+25:00 等を拒否、#1352）。
+        $startsAt = V::isoDatetime($body['starts_at'] ?? null);
+        $endsAt = V::isoDatetime($body['ends_at'] ?? null);
         // Narrow both to non-null via control flow so the type-checker is satisfied.
         if ($startsAt === null || $endsAt === null || !$this->after($endsAt, $startsAt)) {
             throw new ValidationException([new ValidationError(
@@ -139,20 +140,6 @@ class RouteRegistrar
             return false;
         }
         return hash_equals($this->adminKey, $request->getHeaderLine('X-Admin-Key'));
-    }
-
-    private function iso(mixed $raw): ?string
-    {
-        $iso = V::isoDatetime($raw);
-        if ($iso === null) {
-            return null;
-        }
-        $offsetHours = (int) substr($iso, -5, 2);
-        $offsetMinutes = (int) substr($iso, -2);
-        if ($offsetHours > 14 || $offsetMinutes > 59 || ($offsetHours === 14 && $offsetMinutes > 0)) {
-            return null;
-        }
-        return $iso;
     }
 
     private function after(string $a, string $b): bool
