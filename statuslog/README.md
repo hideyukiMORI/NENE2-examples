@@ -116,7 +116,7 @@ GET /incidents?open=1
 ## Test Results
 
 ```
-46 tests / 93 assertions — all PASS
+11 tests / 21 assertions — all PASS (lifecycle, resolved-immutable 409, admin auth, enums)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
