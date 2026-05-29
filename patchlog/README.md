@@ -38,14 +38,16 @@ composer check    # cs + analyse + test
 
 ```
 src/Document/
-  Document.php            — readonly value object with etag() method
-  DocumentRepository.php  — create / listByPage / replace / patch / delete
+  DocumentRepository.php  — create / listByPage / update(version bump) / delete
   DocumentStatus.php      — enum: draft | published | archived
-  RouteRegistrar.php      — 6 routes, V.php for all validation
-src/AppFactory.php
+  RouteRegistrar.php      — 6 routes; V.php validation + ConditionalWriteHelper
+src/AppFactory.php        — wires JsonResponseFactory + ProblemDetailsResponseFactory
 database/schema.sql
-tests/Document/PatchTest.php  — 42 tests / 141 assertions, ATK-01〜12
+tests/Document/PatchTest.php  — 16 tests / 33 assertions, ATK-01〜12
 ```
+
+ETag is version-based (`"{id}-{version}"`); `ConditionalWriteHelper::check()`
+maps a missing `If-Match` to `428` and a stale one to `412`.
 
 ## Attack scenarios tested (ATK-01〜12)
 
