@@ -14,34 +14,36 @@ field trials, in FT order. Each app validates the **released** framework
 
 ---
 
-## ⭐ ACTIVE: fill the FT178–FT190 README-only stubs (13)
+## ✅ DONE: fill the FT178–FT190 README-only stubs (13/13)
 
 A prior session committed **README-only stubs** (no `src`/`tests`/`composer.json`)
-for **FT178–FT190**. These looked "covered" by the README FT-number scan but are
-hollow. Filling them with real implementations is the current priority — specs are
-already in each stub's README, and there is zero duplication risk.
+for **FT178–FT190**. These looked "covered" by the README FT-number scan but were
+hollow. **All 13 are now filled** with real implementations (src+tests+composer,
+PHPUnit green, PHPStan L8 clean, CS clean), each README's inflated "N tests" count
+corrected to reality.
 
-Stubs → status:
-`patchlog`(178 ✅), `isolationlog`(179 ✅), `sortlog`(180 ✅), `reminderlog`(181 ✅),
-`batchlog`(182 ✅), `shortlog`(183 ✅), `onetimelog`(184 ✅),
-**`statuslog`(185 ← NEXT)**, `sessionlog`(186), `encryptlog`(187), `verifylog`(188),
-`consentlog`(189), `announcelog`(190).
+Stubs → status (all ✅, committed+pushed to `main`):
+`patchlog`(178), `isolationlog`(179), `sortlog`(180), `reminderlog`(181),
+`batchlog`(182), `shortlog`(183), `onetimelog`(184), `statuslog`(185),
+`sessionlog`(186), `encryptlog`(187), `verifylog`(188), `consentlog`(189),
+`announcelog`(190).
+
+**Next workstream → re-run the dir-vs-howto gap scan** (see Coverage below) to find
+the next genuinely-uncovered howto topics and build them in FT order.
 
 **NENE2 core bug found (file a fix PR like #1346):** released `V::futureDatetime()`
 (1.5.323) compares ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
 does not range-check the offset (`+25:00` passes its regex). `reminderlog` works
 around both in-app and documents it; the core helpers should be fixed (the howto
-already shows the intended fix). Verified empirically.
+already shows the intended fix). Verified empirically. `reminderlog`, `consentlog`
+and `announcelog` all work around the offset range-check in-app (reject offsets
+beyond ±14:00). **The core fix PR is still PENDING** — file it like #1346.
 
-**Per stub:** read its `README.md` (has the spec + ATK/VULN table), build
-`composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the README,
-correct its inflated "N tests" / file-list claims to reality), verify
-phpunit+phpstan L8+cs, commit `feat(<name>): FT<N> 実装を追加`. Released `^1.5`
-(=1.5.323) **has `V`, `ConditionalGetHelper`, `ConditionalWriteHelper`,
-`ProblemDetailsResponseFactory`** — use them when the README calls for them
-(see `patchlog`).
-
-**Next stub → `isolationlog` (FT179).**
+**Per stub recipe (kept for reference):** read its `README.md` (spec + ATK/VULN
+table), build `composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the
+README, correct inflated "N tests" claims to reality), verify phpunit+phpstan L8+cs,
+commit `feat(<name>): FT<N> 実装を追加`. Released `^1.5` (=1.5.323) **has `V`,
+`ConditionalGetHelper`, `ConditionalWriteHelper`, `ProblemDetailsResponseFactory`**.
 
 ---
 
