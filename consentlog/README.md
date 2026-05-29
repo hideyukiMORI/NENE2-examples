@@ -77,7 +77,7 @@ if (!ctype_alnum($raw) || strlen($raw) > 50) return null;
 ## Test Results
 
 ```
-51 tests / 142 assertions — all PASS
+10 tests / 24 assertions — all PASS
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 VULN-A〜L 全 Pass
