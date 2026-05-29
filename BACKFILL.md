@@ -14,6 +14,31 @@ field trials, in FT order. Each app validates the **released** framework
 
 ---
 
+## ⭐ ACTIVE: fill the FT178–FT190 README-only stubs (13)
+
+A prior session committed **README-only stubs** (no `src`/`tests`/`composer.json`)
+for **FT178–FT190**. These looked "covered" by the README FT-number scan but are
+hollow. Filling them with real implementations is the current priority — specs are
+already in each stub's README, and there is zero duplication risk.
+
+Stubs → status:
+`patchlog`(178 ✅ done), `isolationlog`(179), `sortlog`(180), `reminderlog`(181),
+`batchlog`(182), `shortlog`(183), `onetimelog`(184), `statuslog`(185),
+`sessionlog`(186), `encryptlog`(187), `verifylog`(188), `consentlog`(189),
+`announcelog`(190).
+
+**Per stub:** read its `README.md` (has the spec + ATK/VULN table), build
+`composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the README,
+correct its inflated "N tests" / file-list claims to reality), verify
+phpunit+phpstan L8+cs, commit `feat(<name>): FT<N> 実装を追加`. Released `^1.5`
+(=1.5.323) **has `V`, `ConditionalGetHelper`, `ConditionalWriteHelper`,
+`ProblemDetailsResponseFactory`** — use them when the README calls for them
+(see `patchlog`).
+
+**Next stub → `isolationlog` (FT179).**
+
+---
+
 ## Coverage
 
 - **Already covered:** FT97–FT190 **(FT142 is a gap)**.
