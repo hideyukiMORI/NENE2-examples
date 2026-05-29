@@ -71,12 +71,18 @@ Phase-2 batch 1 — **DONE** (all green, committed/pushed):
 plus the obvious ones (subscriptionlog→planlog, flaglog→featureflaglog,
 locklog/optimisticlog→optlocklog, webhooklog→webhookdeliverylog, etc.).
 
-Phase-2 batch 2 — **remaining confirmed-distinct (← NEXT):**
-`contentlog`(FT301 content-negotiation — Accept header), `unicodelog`(FT345
-unicode-aware text). Candidates needing a topic-check before building:
-`statslog`(FT51/243 event-analytics — vs reportlog/agglog?),
-`tagfilterlog`(FT250 multi-value tag AND/OR — vs taglog?),
-`waitlistlog` done. After these, re-run the gap scan below for batch 3.
+Phase-2 batch 2 — **DONE** (all green, committed/pushed):
+`contentlog`(FT301 content-negotiation — Accept/415/problem+json),
+`unicodelog`(FT345 unicode-aware text — mb_strlen/null-byte/VULN-01..08).
+
+Phase-2 batch 3 — **candidates needing a topic-check before building (← NEXT):**
+`statslog`(FT51/243 event-analytics — compare vs `reportlog`/`agglog`; likely a
+distinct json_extract/event-log angle but verify),
+`tagfilterlog`(FT250 multi-value tag AND/OR filtering — compare vs `taglog` which is
+plain M:N tagging; the AND/OR query semantics may be genuinely new).
+For each: read the howto, `grep -m1 description` the nearest existing stem, and only
+build if the TOPIC (not just the dir name) is absent. Then re-run the gap scan for
+batch 4. Most remaining FT199–349 howtos are dups of existing `*log` dirs.
 
 ### Howto bugs found & fixed via examples (good-citizen PRs)
 - **#1348 (merged)** time-tracking julianday truncation (60s→59s) → `strftime('%s')`.
