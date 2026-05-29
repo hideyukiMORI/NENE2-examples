@@ -23,9 +23,9 @@ already in each stub's README, and there is zero duplication risk.
 
 Stubs → status:
 `patchlog`(178 ✅), `isolationlog`(179 ✅), `sortlog`(180 ✅), `reminderlog`(181 ✅),
-**`batchlog`(182 ← NEXT)**, `shortlog`(183), `onetimelog`(184), `statuslog`(185),
-`sessionlog`(186), `encryptlog`(187), `verifylog`(188), `consentlog`(189),
-`announcelog`(190).
+`batchlog`(182 ✅), `shortlog`(183 ✅), `onetimelog`(184 ✅),
+**`statuslog`(185 ← NEXT)**, `sessionlog`(186), `encryptlog`(187), `verifylog`(188),
+`consentlog`(189), `announcelog`(190).
 
 **NENE2 core bug found (file a fix PR like #1346):** released `V::futureDatetime()`
 (1.5.323) compares ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
