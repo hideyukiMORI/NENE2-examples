@@ -142,7 +142,7 @@ $router    = AppFactory::create($pdo, $validator);
 ## Test Results
 
 ```
-52 tests / 83 assertions — all PASS
+9 tests / 24 assertions — all PASS (SSRF vectors + IDOR + mass-assignment)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
