@@ -31,13 +31,14 @@ Stubs → status (all ✅, committed+pushed to `main`):
 **Next workstream → re-run the dir-vs-howto gap scan** (see Coverage below) to find
 the next genuinely-uncovered howto topics and build them in FT order.
 
-**NENE2 core bug found (file a fix PR like #1346):** released `V::futureDatetime()`
-(1.5.323) compares ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
-does not range-check the offset (`+25:00` passes its regex). `reminderlog` works
-around both in-app and documents it; the core helpers should be fixed (the howto
-already shows the intended fix). Verified empirically. `reminderlog`, `consentlog`
-and `announcelog` all work around the offset range-check in-app (reject offsets
-beyond ±14:00). **The core fix PR is still PENDING** — file it like #1346.
+**NENE2 core bug found & FIXED (#1352, merged):** released `V::futureDatetime()`
+(1.5.323) compared ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
+did not range-check the offset (`+25:00` passed its regex). Fixed upstream in
+**#1352** (instant comparison + `±14:00` offset bound). `reminderlog`, `consentlog`,
+`announcelog`, `reservationlog`, `timelog` keep their in-app workarounds **until a
+release ships the fix** (examples depend on the released `^1.5`, currently 1.5.323 on
+Packagist — the fix is on `main` but unreleased). Once a release ≥ the fix is on
+Packagist, the in-app offset/instant workarounds can be removed.
 
 **Per stub recipe (kept for reference):** read its `README.md` (spec + ATK/VULN
 table), build `composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the
@@ -126,7 +127,10 @@ a dedicated example. Otherwise the backfill is complete.
   Found by `timelog`.
 - **#1350 (merged)** sqlite-fts5-search "implicit OR" → actually **implicit AND**.
   Found by `ftslog`.
-- Still PENDING: `V::futureDatetime` / `V::isoDatetime` core fixes (from `reminderlog`).
+- **#1352 (merged)** `V::isoDatetime` accepted out-of-range offsets (`+25:00`) and
+  `V::futureDatetime` compared ATOM strings (wrong across offsets) → offset bound +
+  instant comparison. Found by `reminderlog`. **In-app workarounds stay until the fix
+  ships in a Packagist release** (examples pin released `^1.5`).
 
 The gap scan that produces candidates:
 ```bash
