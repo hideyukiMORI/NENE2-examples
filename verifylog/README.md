@@ -102,7 +102,7 @@ Incrementing attempts **before** the comparison ensures concurrent requests cann
 ## Test Results
 
 ```
-48 tests / 103 assertions — all PASS
+11 tests / 19 assertions — all PASS (lockout, replay 410, expiry, hash_equals, id guards)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ATK-01〜12 全 Pass
