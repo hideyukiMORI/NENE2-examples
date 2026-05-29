@@ -37,7 +37,8 @@ ls ../NENE2/docs/howto/*.md                                   # all howtos
 and build howtos whose topic has no matching dir.
 
 **Verified-uncovered candidates (no example dir as of 2026-05-29):**
-~~`project-task-management`~~ (done → `projtrack`), `inventory-management`,
+~~`project-task-management`~~ (done → `projtrack`),
+~~`inventory-management`~~ (done → `inventorylog`),
 `quota-management`, `budget-tracking`, `expense-tracker`, `contact-management`,
 `habit-tracker`, `media-watchlist`, `price-history`, `shift-management`,
 `multilingual-content`, `article-relations-api`, `article-versioning-api`,
@@ -45,8 +46,9 @@ and build howtos whose topic has no matching dir.
 (Confirm each against the dir list before building — some may overlap a
 differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
 
-- **Resume point → `inventory-management`** (confirm no `inventory*` dir; note
-  `salelog` is flash-sale — different), then down the candidate list.
+- **Resume point → `expense-tracker`** (confirm no `expense*` dir), then down
+  the candidate list. (Skip `quota-management` if it overlaps `limitlog`/
+  `throttlelog` — verify first.)
 
 > Test note: pass query-string params as **strings** in tests
 > (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads them via
