@@ -19,11 +19,38 @@ field trials, in FT order. Each app validates the **released** framework
 - **Already covered:** FT97–FT190 **(FT142 is a gap)**.
 - **Added by this workstream:** FT352 `reorderlog`, FT194 `assetlog`,
   FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`, FT198 `walletlog`.
-- **Resume point → FT206** `leaderboard-ranking` (`ranklog`-style), then FT207+.
-  **FT199–FT205 need remapping** — the "first `FTxxx` marker in the howto body"
-  heuristic returned nothing for them; grep all markers (not just the first per
-  file) or check `docs/milestones/` to find their howtos before skipping.
 - Also pending: backfill the **FT142** gap.
+
+### ⚠️ Selection method (corrected — read this)
+
+**Do NOT map by FT number for FT199+.** Investigation showed the FT→howto→dir
+mapping breaks down past ~FT198: most FT199–FT349 howtos are variants / re-docs
+of topics that were **already implemented** under an earlier `*log/` dir, and
+only FT196–198 carry a clean `Field trial: FTxxx (…/NENE2-FT/<dir>/)` line.
+
+The real backlog is **howto topics that have no example dir** — far fewer than
+the naive "159". Pick the next target this way:
+```bash
+ls -d ../NENE2-examples-repo/*/ | sed 's#.*/\([^/]*\)/#\1#'   # existing dirs
+ls ../NENE2/docs/howto/*.md                                   # all howtos
+```
+and build howtos whose topic has no matching dir.
+
+**Verified-uncovered candidates (no example dir as of 2026-05-29):**
+~~`project-task-management`~~ (done → `projtrack`), `inventory-management`,
+`quota-management`, `budget-tracking`, `expense-tracker`, `contact-management`,
+`habit-tracker`, `media-watchlist`, `price-history`, `shift-management`,
+`multilingual-content`, `article-relations-api`, `article-versioning-api`,
+`aggregate-reporting`.
+(Confirm each against the dir list before building — some may overlap a
+differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
+
+- **Resume point → `inventory-management`** (confirm no `inventory*` dir; note
+  `salelog` is flash-sale — different), then down the candidate list.
+
+> Test note: pass query-string params as **strings** in tests
+> (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads them via
+> `getQueryParams()` and Nyholm does not coerce ints. (Hit in `projtrack`.)
 
 > PHPStan note: it treats repo `findById()` as pure, so a second call with the
 > same arg is narrowed non-null — don't re-fetch-then-`assert(!== null)`; capture
