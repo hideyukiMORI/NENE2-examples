@@ -18,10 +18,14 @@ field trials, in FT order. Each app validates the **released** framework
 
 - **Already covered:** FT97–FT190 **(FT142 is a gap)**.
 - **Added by this workstream:** FT352 `reorderlog`, FT194 `assetlog`,
-  FT195 `vaultlog`, FT196 `ticketlog`.
-- **Resume point → FT197** `document-template-engine`, then FT198
-  `multi-currency-wallet`, then FT206+ (`leaderboard-ranking`, …).
+  FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`.
+- **Resume point → FT198** `multi-currency-wallet`, then FT206+
+  (`leaderboard-ranking`, …).
 - Also pending: backfill the **FT142** gap.
+
+> PHPStan note: it treats repo `findById()` as pure, so a second call with the
+> same arg is narrowed non-null — don't re-fetch-then-`assert(!== null)`; capture
+> once or `(array)`-cast the re-read. (Hit in `templatelog`.)
 
 The frontier (FT191–193) has no howto carrying an `FT19x` marker; start at the
 lowest FT that maps to a howto (FT194 was the first).
