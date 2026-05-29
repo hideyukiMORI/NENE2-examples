@@ -1,0 +1,31 @@
+{
+    "name": "fieldtrial/productlog",
+    "description": "FT212 — 商品カタログ API (ATK-01〜12): admin-only 書き込み・SKU 正規表現・ソフトデリート・パラメタライズ LIKE 検索",
+    "type": "project",
+    "require": {
+        "php": "^8.4",
+        "hideyukimori/nene2": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ProductLog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ProductLog\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --level=8 --memory-limit=512M src tests",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "check": ["@test", "@analyse", "@cs"]
+    }
+}
