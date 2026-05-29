@@ -22,10 +22,16 @@ hollow. Filling them with real implementations is the current priority — specs
 already in each stub's README, and there is zero duplication risk.
 
 Stubs → status:
-`patchlog`(178 ✅ done), `isolationlog`(179), `sortlog`(180), `reminderlog`(181),
-`batchlog`(182), `shortlog`(183), `onetimelog`(184), `statuslog`(185),
+`patchlog`(178 ✅), `isolationlog`(179 ✅), `sortlog`(180 ✅), `reminderlog`(181 ✅),
+**`batchlog`(182 ← NEXT)**, `shortlog`(183), `onetimelog`(184), `statuslog`(185),
 `sessionlog`(186), `encryptlog`(187), `verifylog`(188), `consentlog`(189),
 `announcelog`(190).
+
+**NENE2 core bug found (file a fix PR like #1346):** released `V::futureDatetime()`
+(1.5.323) compares ATOM *strings* → wrong across TZ offsets; `V::isoDatetime()`
+does not range-check the offset (`+25:00` passes its regex). `reminderlog` works
+around both in-app and documents it; the core helpers should be fixed (the howto
+already shows the intended fix). Verified empirically.
 
 **Per stub:** read its `README.md` (has the spec + ATK/VULN table), build
 `composer.json`+`src`+`tests`+`database/schema.sql`+configs (keep the README,
