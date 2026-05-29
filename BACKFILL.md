@@ -37,22 +37,28 @@ ls ../NENE2/docs/howto/*.md                                   # all howtos
 and build howtos whose topic has no matching dir.
 
 **Verified-uncovered candidates (no example dir as of 2026-05-29):**
-~~`project-task-management`~~ (done → `projtrack`),
-~~`inventory-management`~~ (done → `inventorylog`),
-`quota-management`, `budget-tracking`, `expense-tracker`, `contact-management`,
-`habit-tracker`, `media-watchlist`, `price-history`, `shift-management`,
-`multilingual-content`, `article-relations-api`, `article-versioning-api`,
-`aggregate-reporting`.
+~~`project-task-management`~~ (→ `projtrack`),
+~~`inventory-management`~~ (→ `inventorylog`),
+~~`expense-tracker`~~ (→ `expenselog`),
+~~`budget-tracking`~~ (→ `budgetlog`, hardened past the howto's ATK findings),
+`quota-management`, `contact-management`, `habit-tracker`, `media-watchlist`,
+`price-history`, `shift-management`, `multilingual-content`,
+`article-relations-api`, `article-versioning-api`, `aggregate-reporting`.
 (Confirm each against the dir list before building — some may overlap a
 differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
 
-- **Resume point → `expense-tracker`** (confirm no `expense*` dir), then down
-  the candidate list. (Skip `quota-management` if it overlaps `limitlog`/
-  `throttlelog` — verify first.)
+- **Resume point → `contact-management`** (confirm no `contact*` dir), then down
+  the candidate list. (Verify `quota-management` doesn't overlap `limitlog`/
+  `throttlelog` before building it.)
 
 > Test note: pass query-string params as **strings** in tests
-> (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads them via
-> `getQueryParams()` and Nyholm does not coerce ints. (Hit in `projtrack`.)
+> (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads `getQueryParams()`
+> and Nyholm does not coerce ints. (Hit in `projtrack`.)
+> PSR-4 note: a class must live in a file matching its name —
+> `AccountNotFoundException` in `AccountNotFoundException.php`, not a shared
+> `FooException.php`, or it won't autoload (silent `Error` → 500). (Hit in `budgetlog`.)
+> When a howto's own ATK lists EXPOSED items, build the **hardened** version and
+> assert the fixes in tests (see `budgetlog`).
 
 > PHPStan note: it treats repo `findById()` as pure, so a second call with the
 > same arg is narrowed non-null — don't re-fetch-then-`assert(!== null)`; capture
