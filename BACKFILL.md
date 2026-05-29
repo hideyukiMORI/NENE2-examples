@@ -246,7 +246,15 @@ lowest FT that maps to a howto (FT194 was the first).
    git push origin main
    ```
    `vendor/` is gitignored; **commit `composer.lock`**.
-8. **Update this file's resume point**, then go to the next FT.
+8. **Regenerate the catalog index** so the top-level `README.md` stays current:
+   ```bash
+   php tools/build-index.php          # rewrite README.md
+   php tools/build-index.php --check  # drift gate (no CI in this repo)
+   ```
+   Commit the README change with the example. The index is built from each
+   `composer.json` description (FT number) + `README.md` (H1 title / howto link /
+   ATK·VULN markers); never hand-edit the `<!-- INDEX:START -->…END -->` block.
+9. **Update this file's resume point**, then go to the next FT.
 
 ### Quality bar
 - PHPUnit green · PHPStan **level 8** clean · PHP CS Fixer clean.

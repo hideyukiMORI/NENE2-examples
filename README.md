@@ -34,90 +34,137 @@ vendor/bin/phpunit
 
 ## Index
 
-| Directory | Pattern | Howto guide |
-|---|---|---|
-| [ablog](./ablog/) | A/B Testing | [ab-testing.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/ab-testing.md) |
-| [agglog](./agglog/) | Admin Report Aggregation | [admin-report-aggregation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/admin-report-aggregation.md) |
-| [apikeylog](./apikeylog/) | API Key Management | [api-key-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-key-management.md) |
-| [auditlog](./auditlog/) | Audit Trail | [audit-trail.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/audit-trail.md) |
-| [bookmarklog](./bookmarklog/) | Bookmark System | [bookmark-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/bookmark-system.md) |
-| [cachelog](./cachelog/) | Application Caching | [application-caching.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/application-caching.md) |
-| [cartlog](./cartlog/) | Shopping Cart | [shopping-cart.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/shopping-cart.md) |
-| [circuitlog](./circuitlog/) | Circuit Breaker | [circuit-breaker.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/circuit-breaker.md) |
-| [collectionlog](./collectionlog/) | Content Collection | [content-collection.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-collection.md) |
-| [commentlog](./commentlog/) | Threaded Comments | [threaded-comments.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/threaded-comments.md) |
-| [contentvlog](./contentvlog/) | Content Versioning | [content-versioning.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-versioning.md) |
-| [couponlog](./couponlog/) | Coupon / Promo Codes | [coupon-promo-code.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/coupon-promo-code.md) |
-| [csrflog](./csrflog/) | CSRF & Idempotency | [csrf-and-json-api.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/csrf-and-json-api.md) |
-| [deduplog](./deduplog/) | Request Deduplication | [request-deduplication.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/request-deduplication.md) |
-| [distlocklog](./distlocklog/) | Distributed Locking | [distributed-locking.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/distributed-locking.md) |
-| [emojilog](./emojilog/) | Emoji Reactions | [emoji-reaction-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/emoji-reaction-system.md) |
-| [etaglog](./etaglog/) | ETag & Conditional Requests | [etag-conditional-requests.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/etag-conditional-requests.md) |
-| [eventsourcelog](./eventsourcelog/) | Event Sourcing | [event-sourcing.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/event-sourcing.md) |
-| [exportlog](./exportlog/) | Personal Data Export | [personal-data-export.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/personal-data-export.md) |
-| [featureflaglog](./featureflaglog/) | Feature Flags | [feature-flags.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/feature-flags.md) |
-| [feedlog](./feedlog/) | Activity Feed | [activity-feed.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/activity-feed.md) |
-| [filelog](./filelog/) | File Metadata Sharing | [file-metadata-sharing.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/file-metadata-sharing.md) |
-| [followlog](./followlog/) | User Follow System | [user-follow-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-follow-system.md) |
-| [geoloclog](./geoloclog/) | Geolocation | [geolocation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/geolocation.md) |
-| [grouplog](./grouplog/) | Group Membership | [group-membership-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/group-membership-management.md) |
-| [hierarchylog](./hierarchylog/) | Hierarchical Data (Materialized Path) | [hierarchical-data.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/hierarchical-data.md) |
-| [hmaclog](./hmaclog/) | Webhook Signature Verification | [webhook-signature.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/webhook-signature.md) |
-| [importlog](./importlog/) | CSV Bulk Import | [csv-bulk-import.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/csv-bulk-import.md) |
-| [inboundlog](./inboundlog/) | Inbound Webhook Receiver | [inbound-webhook-receiver.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/inbound-webhook-receiver.md) |
-| [injectionlog](./injectionlog/) | SQL Injection Prevention | [sql-injection.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/sql-injection.md) |
-| [invitelog](./invitelog/) | User Invitation | [user-invitation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-invitation.md) |
-| [jwtlog](./jwtlog/) | JWT Authentication | [jwt-authentication.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/jwt-authentication.md) |
-| [lockoutlog](./lockoutlog/) | Account Lockout | [account-lockout.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/account-lockout.md) |
-| [magiclog](./magiclog/) | Passwordless Auth (Magic Link) | [passwordless-auth-magic-link.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/passwordless-auth-magic-link.md) |
-| [masklog](./masklog/) | Data Masking | [data-masking.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/data-masking.md) |
-| [masslog](./masslog/) | Mass Assignment Defense | [mass-assignment.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/mass-assignment.md) |
-| [messagelog](./messagelog/) | Direct Messaging | [direct-messaging-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/direct-messaging-system.md) |
-| [nestedlog](./nestedlog/) | Nested JSON Validation | [nested-json-validation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/nested-json-validation.md) |
-| [notificationlog](./notificationlog/) | Notification Inbox | [notification-inbox.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/notification-inbox.md) |
-| [oauthlog](./oauthlog/) | OAuth2 Social Login | [oauth2-social-login.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/oauth2-social-login.md) |
-| [optlocklog](./optlocklog/) | Optimistic Locking | [optimistic-locking.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/optimistic-locking.md) |
-| [orderlog](./orderlog/) | Guest Order System | [guest-order-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/guest-order-system.md) |
-| [otplog](./otplog/) | OTP Authentication | [otp-authentication.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/otp-authentication.md) |
-| [pagelog](./pagelog/) | Pagination | [pagination.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/pagination.md) |
-| [paymentlog](./paymentlog/) | Payment Webhook | [payment-webhook.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/payment-webhook.md) |
-| [pinlog](./pinlog/) | Content Pinning | [content-pinning.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-pinning.md) |
-| [planlog](./planlog/) | Subscription Plan Management | [subscription-plan-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/subscription-plan-management.md) |
-| [pointlog](./pointlog/) | Point / Loyalty System | [point-loyalty-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/point-loyalty-system.md) |
-| [preflog](./preflog/) | User Preferences | [user-preferences-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-preferences-management.md) |
-| [profilelog](./profilelog/) | User Profile Management | [user-profile-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-profile-management.md) |
-| [pubschedulelog](./pubschedulelog/) | Content Scheduling (Time-Based Publish) | [content-scheduling.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-scheduling.md) |
-| [pwdlog](./pwdlog/) | Password Hashing | [password-hashing.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-hashing.md) |
-| [queuelog](./queuelog/) | Job Queue | [job-queue.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/job-queue.md) |
-| [ranklog](./ranklog/) | Leaderboard Ranking | [leaderboard-ranking-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/leaderboard-ranking-system.md) |
-| [rbaclog](./rbaclog/) | RBAC | [rbac.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/rbac.md) |
-| [refreshlog](./refreshlog/) | JWT Refresh Token Rotation | [refresh-token-rotation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/refresh-token-rotation.md) |
-| [reportlog](./reportlog/) | Content Moderation | [content-report-moderation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-report-moderation.md) |
-| [relatedlog](./relatedlog/) | Content Relations (Typed M:N Links) | [content-relations.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-relations.md) |
-| [resetlog](./resetlog/) | Password Reset | [password-reset.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-reset.md) |
-| [reviewlog](./reviewlog/) | Product Reviews | [product-review-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/product-review-system.md) |
-| [salelog](./salelog/) | Flash Sale | [flash-sale-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/flash-sale-system.md) |
-| [searchlog](./searchlog/) | Search & Autocomplete | [search-autocomplete.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/search-autocomplete.md) |
-| [signedlog](./signedlog/) | Signed URLs | [signed-urls.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/signed-urls.md) |
-| [sluglog](./sluglog/) | Slug Management | [slug-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/slug-management.md) |
-| [meterlog](./meterlog/) | API Usage Metering | [api-usage-metering.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-usage-metering.md) |
-| [limitlog](./limitlog/) | Pagination Boundary Attack | [pagination-boundary-attack.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/pagination-boundary-attack.md) |
-| [grantlog](./grantlog/) | Delegated Access Grants | [delegated-access-grants.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/delegated-access-grants.md) |
-| [softdeletelog](./softdeletelog/) | Soft Delete | [soft-delete.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/soft-delete.md) |
-| [stepflowlog](./stepflowlog/) | Multi-step Workflow | [multi-step-workflow.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-step-workflow.md) |
-| [taglog](./taglog/) | Tagging System (M:N) | [tagging-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/tagging-system.md) |
-| [tenantlog](./tenantlog/) | Multi-tenant Isolation | [multi-tenant-isolation.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-tenant-isolation.md) |
-| [throttlelog](./throttlelog/) | Rate Limiting | [rate-limiting.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/rate-limiting.md) |
-| [tokenlog](./tokenlog/) | Access Token Management | [access-token-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/access-token-management.md) |
-| [totplog](./totplog/) | TOTP Two-Factor Auth | [totp-authentication.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/totp-authentication.md) |
-| [txlog](./txlog/) | Database Transactions | [transactions.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/transactions.md) |
-| [uploadlog](./uploadlog/) | File Upload | [file-upload.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/file-upload.md) |
-| [versionlog](./versionlog/) | API Versioning | [api-versioning.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-versioning.md) |
-| [votelog](./votelog/) | Voting System | [voting-system.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/voting-system.md) |
-| [webhookdeliverylog](./webhookdeliverylog/) | Webhook Delivery (outbound) | [webhook-delivery.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/webhook-delivery.md) |
-| [wishlistlog](./wishlistlog/) | Wishlist Management | [wishlist-management.md](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/wishlist-management.md) |
 
----
+<!-- INDEX:START -->
+_124 examples · 20 with ATK/VULN security assessments. Generated by `tools/build-index.php` — do not edit by hand._
+
+| FT | Example | Pattern | Sec | Howto |
+|----|---------|---------|-----|-------|
+| 43 | [shiftlog](./shiftlog/) | Employee Shift Scheduling (hardened) | 🛡️ | [shift-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/shift-management.md) |
+| 51 | [statslog](./statslog/) | Event Analytics API |  | [event-analytics](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/event-analytics.md) |
+| 59 | [watchlog](./watchlog/) | Media Watchlist |  | [media-watchlist](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/media-watchlist.md) |
+| 62 | [softdeletelog](./softdeletelog/) | Soft Delete |  | [soft-delete](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/soft-delete.md) |
+| 67 | [pricelog](./pricelog/) | Product Price History (hardened) | 🛡️ | [price-history](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/price-history.md) |
+| 72 | [deadletterlog](./deadletterlog/) | Dead Letter Queue (DLQ) |  | [dead-letter-queue](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/dead-letter-queue.md) |
+| 85 | [bulkupdatelog](./bulkupdatelog/) | Bulk Status Update API (hardened) | 🛡️ | [bulk-status-update](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/bulk-status-update.md) |
+| 97 | [injectionlog](./injectionlog/) | SQL Injection Defence |  | [sql-injection](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/sql-injection.md) |
+| 98 | [uploadlog](./uploadlog/) | File Upload |  | [file-upload](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/file-upload.md) |
+| 99 | [csrflog](./csrflog/) | CSRF Pattern & Idempotency |  | [csrf-and-json-api](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/csrf-and-json-api.md) |
+| 100 | [pagelog](./pagelog/) | Pagination |  | [pagination](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/pagination.md) |
+| 101 | [nestedlog](./nestedlog/) | Nested JSON Validation |  | [nested-json-validation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/nested-json-validation.md) |
+| 102 | [txlog](./txlog/) | DB Transaction Boundaries |  | [transactions](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/transactions.md) |
+| 103 | [masslog](./masslog/) | Mass Assignment Defence |  | [mass-assignment](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/mass-assignment.md) |
+| 104 | [hmaclog](./hmaclog/) | Webhook Signature Verification |  | [webhook-signature](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/webhook-signature.md) |
+| 105 | [optlocklog](./optlocklog/) | Optimistic Locking |  | [optimistic-locking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/optimistic-locking.md) |
+| 106 | [etaglog](./etaglog/) | ETag & Conditional Requests |  | [etag-conditional-requests](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/etag-conditional-requests.md) |
+| 107 | [throttlelog](./throttlelog/) | Rate Limiting |  | [rate-limiting](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/rate-limiting.md) |
+| 109 | [pwdlog](./pwdlog/) | Password Hashing |  | [password-hashing](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-hashing.md) |
+| 110 | [jwtlog](./jwtlog/) | JWT Authentication |  | [jwt-authentication](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/jwt-authentication.md) |
+| 111 | [rbaclog](./rbaclog/) | RBAC |  | [rbac](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/rbac.md) |
+| 112 | [tenantlog](./tenantlog/) | Multi-tenant Isolation |  | [multi-tenant-isolation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-tenant-isolation.md) |
+| 113 | [refreshlog](./refreshlog/) | JWT Refresh Token Rotation |  | [refresh-token-rotation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/refresh-token-rotation.md) |
+| 114 | [auditlog](./auditlog/) | Audit Trail |  | [audit-trail](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/audit-trail.md) |
+| 115 | [versionlog](./versionlog/) | API Versioning |  | [api-versioning](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-versioning.md) |
+| 116 | [queuelog](./queuelog/) | Background Job Queue |  | [job-queue](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/job-queue.md) |
+| 117 | [apikeylog](./apikeylog/) | API Key Management |  | [api-key-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-key-management.md) |
+| 118 | [signedlog](./signedlog/) | Signed URLs |  | [signed-urls](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/signed-urls.md) |
+| 119 | [circuitlog](./circuitlog/) | Circuit Breaker |  | [circuit-breaker](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/circuit-breaker.md) |
+| 120 | [webhookdeliverylog](./webhookdeliverylog/) | Outbound Webhook Delivery |  | [webhook-delivery](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/webhook-delivery.md) |
+| 121 | [featureflaglog](./featureflaglog/) | Feature Flags |  | [feature-flags](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/feature-flags.md) |
+| 122 | [distlocklog](./distlocklog/) | Distributed Locking |  | [distributed-locking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/distributed-locking.md) |
+| 123 | [exportlog](./exportlog/) | Personal Data Export |  | [personal-data-export](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/personal-data-export.md) |
+| 124 | [invitelog](./invitelog/) | User Invitation System |  | [user-invitation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-invitation.md) |
+| 125 | [taglog](./taglog/) | Tagging System (M:N) |  | [tagging-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/tagging-system.md) |
+| 126 | [resetlog](./resetlog/) | Password Reset |  | [password-reset](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/password-reset.md) |
+| 127 | [commentlog](./commentlog/) | Threaded Comments |  | [threaded-comments](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/threaded-comments.md) |
+| 128 | [lockoutlog](./lockoutlog/) | Account Lockout |  | [account-lockout](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/account-lockout.md) |
+| 129 | [eventsourcelog](./eventsourcelog/) | Event Sourcing |  | [event-sourcing](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/event-sourcing.md) |
+| 130 | [notificationlog](./notificationlog/) | Notification Inbox |  | [notification-inbox](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/notification-inbox.md) |
+| 131 | [votelog](./votelog/) | Voting System |  | [voting-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/voting-system.md) |
+| 132 | [profilelog](./profilelog/) | User Profile Management |  | [user-profile-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-profile-management.md) |
+| 133 | [bookmarklog](./bookmarklog/) | Bookmark System |  | [bookmark-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/bookmark-system.md) |
+| 134 | [followlog](./followlog/) | User Follow System |  | [user-follow-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-follow-system.md) |
+| 135 | [messagelog](./messagelog/) | Direct Messaging |  | [direct-messaging-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/direct-messaging-system.md) |
+| 136 | [tokenlog](./tokenlog/) | Access Token Management |  | [access-token-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/access-token-management.md) |
+| 137 | [planlog](./planlog/) | Subscription Plan Management |  | [subscription-plan-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/subscription-plan-management.md) |
+| 138 | [grouplog](./grouplog/) | Group Membership Management |  | [group-membership-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/group-membership-management.md) |
+| 139 | [orderlog](./orderlog/) | Guest Order System |  | [guest-order-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/guest-order-system.md) |
+| 140 | [salelog](./salelog/) | Flash Sale System |  | [flash-sale-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/flash-sale-system.md) |
+| 141 | [ranklog](./ranklog/) | Leaderboard Ranking |  | [leaderboard-ranking-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/leaderboard-ranking-system.md) |
+| 142 | [draftlog](./draftlog/) | Content Draft Lifecycle (Draft → Published → Archived) |  | [content-draft-lifecycle](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-draft-lifecycle.md) |
+| 143 | [emojilog](./emojilog/) | Emoji Reactions |  | [emoji-reaction-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/emoji-reaction-system.md) |
+| 144 | [magiclog](./magiclog/) | Passwordless Auth (Magic Link) |  | [passwordless-auth-magic-link](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/passwordless-auth-magic-link.md) |
+| 145 | [preflog](./preflog/) | User Preferences Management |  | [user-preferences-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/user-preferences-management.md) |
+| 146 | [pinlog](./pinlog/) | Content Pinning |  | [content-pinning](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-pinning.md) |
+| 147 | [reportlog](./reportlog/) | Content Reporting & Moderation |  | [content-report-moderation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-report-moderation.md) |
+| 148 | [otplog](./otplog/) | OTP Authentication |  | [otp-authentication](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/otp-authentication.md) |
+| 149 | [collectionlog](./collectionlog/) | Content Collection |  | [content-collection](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-collection.md) |
+| 150 | [couponlog](./couponlog/) | Coupon & Promo Codes |  | [coupon-promo-code](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/coupon-promo-code.md) |
+| 151 | [wishlistlog](./wishlistlog/) | Wishlist Management |  | [wishlist-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/wishlist-management.md) |
+| 152 | [pointlog](./pointlog/) | Point & Loyalty System |  | [point-loyalty-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/point-loyalty-system.md) |
+| 153 | [feedlog](./feedlog/) | Activity Feed | 🛡️ | [activity-feed](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/activity-feed.md) |
+| 154 | [reviewlog](./reviewlog/) | Product Review System |  | [product-review-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/product-review-system.md) |
+| 155 | [cartlog](./cartlog/) | Shopping Cart |  | [shopping-cart](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/shopping-cart.md) |
+| 156 | [filelog](./filelog/) | File Metadata & Sharing |  | [file-metadata-sharing](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/file-metadata-sharing.md) |
+| 157 | [searchlog](./searchlog/) | Search & Autocomplete |  | [search-autocomplete](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/search-autocomplete.md) |
+| 158 | [importlog](./importlog/) | CSV Bulk Import |  | [csv-bulk-import](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/csv-bulk-import.md) |
+| 159 | [totplog](./totplog/) | TOTP Two-Factor Auth |  | [totp-authentication](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/totp-authentication.md) |
+| 160 | [oauthlog](./oauthlog/) | OAuth2 Social Login |  | [oauth2-social-login](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/oauth2-social-login.md) |
+| 161 | [cachelog](./cachelog/) | Application Caching |  | [application-caching](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/application-caching.md) |
+| 162 | [contentvlog](./contentvlog/) | Content Versioning |  | [content-versioning](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-versioning.md) |
+| 163 | [paymentlog](./paymentlog/) | Payment Webhook |  | [payment-webhook](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/payment-webhook.md) |
+| 164 | [geoloclog](./geoloclog/) | Geolocation |  | [geolocation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/geolocation.md) |
+| 165 | [ablog](./ablog/) | A/B Testing |  | [ab-testing](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/ab-testing.md) |
+| 166 | [stepflowlog](./stepflowlog/) | Multi-step Workflow |  | [multi-step-workflow](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-step-workflow.md) |
+| 167 | [inboundlog](./inboundlog/) | Inbound Webhook Receiver |  | [inbound-webhook-receiver](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/inbound-webhook-receiver.md) |
+| 168 | [agglog](./agglog/) | Admin Report Aggregation |  | [admin-report-aggregation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/admin-report-aggregation.md) |
+| 169 | [masklog](./masklog/) | Data Masking |  | [data-masking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/data-masking.md) |
+| 170 | [deduplog](./deduplog/) | Request Deduplication |  | [request-deduplication](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/request-deduplication.md) |
+| 171 | [hierarchylog](./hierarchylog/) | Hierarchical Data |  | [hierarchical-data](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/hierarchical-data.md) |
+| 172 | [pubschedulelog](./pubschedulelog/) | Content Scheduling |  | [content-scheduling](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-scheduling.md) |
+| 173 | [relatedlog](./relatedlog/) | Content Relations |  | [content-relations](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-relations.md) |
+| 174 | [sluglog](./sluglog/) | Slug Management |  | [slug-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/slug-management.md) |
+| 175 | [meterlog](./meterlog/) | API Usage Metering |  | [api-usage-metering](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/api-usage-metering.md) |
+| 176 | [grantlog](./grantlog/) | Delegated Access Grants |  | [delegated-access-grants](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/delegated-access-grants.md) |
+| 177 | [limitlog](./limitlog/) | Pagination Boundary Attack | 🛡️ | [pagination-boundary-attack](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/pagination-boundary-attack.md) |
+| 178 | [patchlog](./patchlog/) | patchlog | 🛡️ | [json-merge-patch](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/json-merge-patch.md) |
+| 179 | [isolationlog](./isolationlog/) | isolationlog | 🛡️ | [tenant-isolation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/tenant-isolation.md) |
+| 180 | [sortlog](./sortlog/) | SQL ORDER BY Injection Prevention | 🛡️ | [sql-orderby-injection](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/sql-orderby-injection.md) |
+| 181 | [reminderlog](./reminderlog/) | ISO 8601 Datetime Validation & Timezone-Aware API |  | [iso-datetime-validation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/iso-datetime-validation.md) |
+| 182 | [batchlog](./batchlog/) | Batch Write API & Partial Success Pattern | 🛡️ | [batch-api-partial-success](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/batch-api-partial-success.md) |
+| 183 | [shortlog](./shortlog/) | URL Shortener API & SSRF Prevention | 🛡️ | [url-shortener-ssrf](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/url-shortener-ssrf.md) |
+| 184 | [onetimelog](./onetimelog/) | One-Time Secret API & ATK-01~12 Cracker Attack Test | 🛡️ | [one-time-secrets](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/one-time-secrets.md) |
+| 185 | [statuslog](./statuslog/) | Service Status Page API |  | [service-status-page](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/service-status-page.md) |
+| 186 | [sessionlog](./sessionlog/) | Multi-Device Session Manager API | 🛡️ | [session-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/session-management.md) |
+| 187 | [encryptlog](./encryptlog/) | Encrypted Field Storage |  | [encrypted-field-storage](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/encrypted-field-storage.md) |
+| 188 | [verifylog](./verifylog/) | Numeric Verification Code | 🛡️ | [numeric-verification-code](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/numeric-verification-code.md) |
+| 189 | [consentlog](./consentlog/) | Privacy Consent Management | 🛡️ | [privacy-consent-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/privacy-consent-management.md) |
+| 190 | [announcelog](./announcelog/) | System Announcement Management |  | [system-announcement-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/system-announcement-management.md) |
+| 194 | [assetlog](./assetlog/) | Asset Check-out / Check-in |  | [asset-checkout](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/asset-checkout.md) |
+| 195 | [vaultlog](./vaultlog/) | Personal Secret Vault | 🛡️ | [secret-vault](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/secret-vault.md) |
+| 196 | [ticketlog](./ticketlog/) | Event Ticket Booking |  | [event-ticket-booking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/event-ticket-booking.md) |
+| 197 | [templatelog](./templatelog/) | Document Template Engine |  | [document-template-engine](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/document-template-engine.md) |
+| 198 | [walletlog](./walletlog/) | Multi-Currency Wallet |  | [multi-currency-wallet](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-currency-wallet.md) |
+| 212 | [productlog](./productlog/) | Product Catalog API (ATK-01〜12 hardened) | 🛡️ | [product-catalog](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/product-catalog.md) |
+| 216 | [reservationlog](./reservationlog/) | Resource Reservation / Time-Slot Booking |  | [resource-reservation](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/resource-reservation.md) |
+| 217 | [polllog](./polllog/) | Poll / Survey API |  | [poll-survey](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/poll-survey.md) |
+| 220 | [inventorylog](./inventorylog/) | Inventory / Stock Management | 🛡️ | [inventory-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/inventory-management.md) |
+| 223 | [expenselog](./expenselog/) | Expense Tracker |  | [expense-tracker](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/expense-tracker.md) |
+| 224 | [habitlog](./habitlog/) | Habit Tracker (hardened) | 🛡️ | [habit-tracker](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/habit-tracker.md) |
+| 232 | [i18nlog](./i18nlog/) | Multilingual Content |  | [multilingual-content](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multilingual-content.md) |
+| 233 | [cqrslog](./cqrslog/) | CQRS Pattern API |  | [cqrs-pattern](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/cqrs-pattern.md) |
+| 238 | [contactlog](./contactlog/) | Contact Management |  | [contact-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/contact-management.md) |
+| 241 | [projtrack](./projtrack/) | Project & Task Management (Nested Resources) |  | [project-task-management](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/project-task-management.md) |
+| 244 | [budgetlog](./budgetlog/) | Budget / Account Management (hardened) | 🛡️ | [budget-tracking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/budget-tracking.md) |
+| 246 | [timelog](./timelog/) | Time Tracking API |  | [time-tracking](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/time-tracking.md) |
+| 250 | [tagfilterlog](./tagfilterlog/) | Multi-value Tag Filter API |  | [multi-value-tag-filter](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/multi-value-tag-filter.md) |
+| 254 | [ftslog](./ftslog/) | SQLite FTS5 Full-Text Search |  | [sqlite-fts5-search](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/sqlite-fts5-search.md) |
+| 287 | [waitlistlog](./waitlistlog/) | Waitlist System |  | [waitlist-system](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/waitlist-system.md) |
+| 301 | [contentlog](./contentlog/) | Content Negotiation (JSON API) |  | [content-negotiation-api](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/content-negotiation-api.md) |
+| 334 | [artrellog](./artrellog/) | Article Relations (typed, auto-inverse) |  | [article-relations-api](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/article-relations-api.md) |
+| 345 | [unicodelog](./unicodelog/) | Unicode-Aware Text API | 🛡️ | [unicode-aware-text-api](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/unicode-aware-text-api.md) |
+| 352 | [reorderlog](./reorderlog/) | Bulk Reorder (Drag-and-Drop Ordering) |  | [bulk-reorder-api](https://github.com/hideyukiMORI/NENE2/blob/main/docs/howto/bulk-reorder-api.md) |
+<!-- INDEX:END -->
 
 ## Related
 
