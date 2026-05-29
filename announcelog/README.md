@@ -72,7 +72,7 @@ Safe to call repeatedly — the second dismiss is a no-op.
 ## Test Results
 
 ```
-38 tests / 93 assertions — all PASS
+21 tests / 30 assertions — all PASS
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
