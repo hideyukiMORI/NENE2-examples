@@ -43,15 +43,16 @@ and build howtos whose topic has no matching dir.
 ~~`budget-tracking`~~ (→ `budgetlog`, hardened past the howto's ATK findings),
 ~~`contact-management`~~ (→ `contactlog`),
 ~~`habit-tracker`~~ (→ `habitlog`, hardened past the howto's ATK findings),
-`quota-management`, `media-watchlist`,
+~~`media-watchlist`~~ (→ `watchlog`),
 `price-history`, `shift-management`, `multilingual-content`,
 `article-relations-api`, `article-versioning-api`, `aggregate-reporting`.
+(`quota-management` overlaps `limitlog`/`throttlelog` — likely already covered; verify, else skip.)
 (Confirm each against the dir list before building — some may overlap a
 differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
 
-- **Resume point → `media-watchlist`** (confirm no `media*`/`watch*` dir), then
-  down the candidate list. (Verify `quota-management` doesn't overlap `limitlog`/
-  `throttlelog` before building it.)
+- **Resume point → `price-history`** (confirm no `price*` dir), then
+  `shift-management`, `multilingual-content`, `article-relations-api`,
+  `article-versioning-api`, `aggregate-reporting`.
 
 > Test note: pass query-string params as **strings** in tests
 > (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads `getQueryParams()`
