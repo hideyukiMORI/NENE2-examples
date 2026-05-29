@@ -102,7 +102,7 @@ $session = $this->repository->create($userId, $deviceName, $ipAddress);
 ## Test Results
 
 ```
-54 tests / 116 assertions — all PASS
+11 tests / 20 assertions — all PASS (IDOR, timing-oracle 404, mass-assignment, revoke-all)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
