@@ -47,14 +47,21 @@ and build howtos whose topic has no matching dir.
 ~~`price-history`~~ (→ `pricelog`, hardened past the howto's ATK findings),
 ~~`shift-management`~~ (→ `shiftlog`, hardened past the howto's VULN findings),
 ~~`multilingual-content`~~ (→ `i18nlog`),
-`article-relations-api`, `article-versioning-api`, `aggregate-reporting`.
-(`quota-management` overlaps `limitlog`/`throttlelog` — likely already covered; verify, else skip.)
-(Confirm each against the dir list before building — some may overlap a
-differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
+~~`article-relations-api`~~ (→ `artrellog`; named to avoid the existing `relatedlog`/FT173).
 
-- **Resume point → `article-relations-api`** (confirm no `article*`/`relation*` dir;
-  note `relatedlog` exists — verify it's different), then `article-versioning-api`,
-  `aggregate-reporting`. After these, re-run the dir-vs-howto gap scan for more.
+**Likely already-covered (verify before building — probably duplicates, skip):**
+`article-versioning-api` (vs `versionlog`/`contentvlog`), `aggregate-reporting`
+(vs `reportlog`/`agglog`), `quota-management` (vs `limitlog`/`throttlelog`).
+
+- **Resume point → re-run the dir-vs-howto gap scan.** The hand-picked candidate
+  list is exhausted; the next genuinely-uncovered topics need a fresh scan:
+  ```bash
+  ls -d ../NENE2-examples-repo/*/ | sed 's#.*/\([^/]*\)/#\1#'   # existing dirs
+  ls ../NENE2/docs/howto/*.md                                   # all 256 howtos
+  ```
+  Diff howto topics against dir stems; build only clearly-distinct ones (do NOT
+  build near-duplicates of an existing `*log` — that's the trap this whole
+  workstream avoids).
 
 > Test note: pass query-string params as **strings** in tests
 > (`withQueryParams(['limit' => '2'])`) — `QueryStringParser` reads `getQueryParams()`
