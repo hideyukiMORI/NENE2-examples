@@ -54,25 +54,44 @@ commit `feat(<name>): FT<N> 実装を追加`. Released `^1.5` (=1.5.323) **has `
   FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`, FT198 `walletlog`,
   FT142 `draftlog`.
 
-### ⭐ ACTIVE phase 2: distinct uncovered howto topics (post-FT198)
+### phase 2: distinct uncovered howto topics (post-FT198)
 
-After the stubs + FT142, the next workstream is **howto topics whose intended dir
-does not exist** (verified by reading each howto's `Field trial: FT… (…/<dir>/)`
-line and checking the dir is absent). The naive FT-number scan over-reports because
-most FT199+ howtos re-doc topics already built under an earlier `*log/` dir.
+The workstream is **howto topics whose intended dir does not exist** (verified by
+reading each howto's `FT reference: FT… (NENE2-FT/<dir>)` line and checking the dir
+is absent). The naive FT-number scan over-reports because most FT199+ howtos re-doc
+topics already built under an earlier `*log/` dir — confirm against existing dirs by
+**topic**, not number.
 
-Confirmed-distinct queue (dir name = the howto's own FT reference):
-`productlog`(FT212 ✅), `reservationlog`(FT216 ✅), **`polllog`(FT217 ← NEXT)**,
-`cqrslog`(FT233), `timelog`(FT246), `deadletterlog`(FT72).
-**Skip `cursorlog`(FT242)** — `pagelog`(FT100) already covers OFFSET-vs-cursor.
+Phase-2 batch 1 — **DONE** (all green, committed/pushed):
+`productlog`(FT212), `reservationlog`(FT216), `polllog`(FT217), `cqrslog`(FT233),
+`timelog`(FT246), `deadletterlog`(FT72), `ftslog`(FT254), `waitlistlog`(FT287).
+**Skipped as dups** (different stem, same topic): `cursorlog`(FT242→`pagelog`),
+`idempotencylog`(FT316→`deduplog`), `threadlog`(FT343→`commentlog`),
+`ratinglog`(FT333→`reviewlog`), `schedulelog`(FT286→`pubschedulelog`),
+plus the obvious ones (subscriptionlog→planlog, flaglog→featureflaglog,
+locklog/optimisticlog→optlocklog, webhooklog→webhookdeliverylog, etc.).
 
-After this queue: re-run the dir-vs-howto gap scan for the next batch. The scan
-that produced this queue:
+Phase-2 batch 2 — **remaining confirmed-distinct (← NEXT):**
+`contentlog`(FT301 content-negotiation — Accept header), `unicodelog`(FT345
+unicode-aware text). Candidates needing a topic-check before building:
+`statslog`(FT51/243 event-analytics — vs reportlog/agglog?),
+`tagfilterlog`(FT250 multi-value tag AND/OR — vs taglog?),
+`waitlistlog` done. After these, re-run the gap scan below for batch 3.
+
+### Howto bugs found & fixed via examples (good-citizen PRs)
+- **#1348 (merged)** time-tracking julianday truncation (60s→59s) → `strftime('%s')`.
+  Found by `timelog`.
+- **#1350 (merged)** sqlite-fts5-search "implicit OR" → actually **implicit AND**.
+  Found by `ftslog`.
+- Still PENDING: `V::futureDatetime` / `V::isoDatetime` core fixes (from `reminderlog`).
+
+The gap scan that produces candidates:
 ```bash
 # 1. covered FT set = FT numbers appearing in NENE2-examples-repo/*/README.md
 # 2. for each howto, grep its first FTnnn marker; if not in covered set, candidate
-# 3. for each candidate, read its "Field trial: FT… (…/<dir>/)" line → intended dir;
-#    keep only those whose <dir> does NOT exist (topic genuinely new, not a re-doc)
+# 3. for each candidate, read its "NENE2-FT/<dir>" reference → intended dir;
+#    keep only those whose <dir> does NOT exist AND whose TOPIC has no existing
+#    *log dir (check `grep -m1 description */composer.json` of the nearest stem)
 ```
 
 ### ⚠️ Selection method (corrected — read this)
