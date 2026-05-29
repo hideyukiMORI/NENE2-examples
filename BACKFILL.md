@@ -49,10 +49,31 @@ commit `feat(<name>): FT<N> 実装を追加`. Released `^1.5` (=1.5.323) **has `
 
 ## Coverage
 
-- **Already covered:** FT97–FT190 **(FT142 is a gap)**.
+- **Fully covered now:** FT97–FT190 (FT142 gap **closed** → `draftlog`).
 - **Added by this workstream:** FT352 `reorderlog`, FT194 `assetlog`,
-  FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`, FT198 `walletlog`.
-- Also pending: backfill the **FT142** gap.
+  FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`, FT198 `walletlog`,
+  FT142 `draftlog`.
+
+### ⭐ ACTIVE phase 2: distinct uncovered howto topics (post-FT198)
+
+After the stubs + FT142, the next workstream is **howto topics whose intended dir
+does not exist** (verified by reading each howto's `Field trial: FT… (…/<dir>/)`
+line and checking the dir is absent). The naive FT-number scan over-reports because
+most FT199+ howtos re-doc topics already built under an earlier `*log/` dir.
+
+Confirmed-distinct queue (dir name = the howto's own FT reference):
+`productlog`(FT212 ✅), `reservationlog`(FT216 ✅), **`polllog`(FT217 ← NEXT)**,
+`cqrslog`(FT233), `timelog`(FT246), `deadletterlog`(FT72).
+**Skip `cursorlog`(FT242)** — `pagelog`(FT100) already covers OFFSET-vs-cursor.
+
+After this queue: re-run the dir-vs-howto gap scan for the next batch. The scan
+that produced this queue:
+```bash
+# 1. covered FT set = FT numbers appearing in NENE2-examples-repo/*/README.md
+# 2. for each howto, grep its first FTnnn marker; if not in covered set, candidate
+# 3. for each candidate, read its "Field trial: FT… (…/<dir>/)" line → intended dir;
+#    keep only those whose <dir> does NOT exist (topic genuinely new, not a re-doc)
+```
 
 ### ⚠️ Selection method (corrected — read this)
 
@@ -108,6 +129,11 @@ and build howtos whose topic has no matching dir.
 > PHPStan note: it treats repo `findById()` as pure, so a second call with the
 > same arg is narrowed non-null — don't re-fetch-then-`assert(!== null)`; capture
 > once or `(array)`-cast the re-read. (Hit in `templatelog`.)
+> PHPStan note 2: a combined `assert($a !== null && $b !== null)` placed **after**
+> an error-accumulation block (push to `$errors[]`, then `if ($errors) throw`)
+> trips `notIdentical.alwaysTrue`. Narrow via control flow instead:
+> `if ($a === null || $b === null || !ok) throw …;` then use `$a`/`$b` directly.
+> (Hit in `announcelog` and `reservationlog`.)
 
 The frontier (FT191–193) has no howto carrying an `FT19x` marker; start at the
 lowest FT that maps to a howto (FT194 was the first).
