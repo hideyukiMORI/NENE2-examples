@@ -117,14 +117,16 @@ The fix: **do not call rawurldecode**. PSR-7 has already decoded once. Check `$r
 ## Test Results
 
 ```
-PHPUnit 11.5.55 · PHP 8.4.21
+PHPUnit · PHP 8.4
 
-................................  32 / 32 (100%)
-
-OK (32 tests, 115 assertions)
+OK (11 tests, 27 assertions)   # legitimate sort/filter + VULN/ATK injection blocked
 PHPStan level 8: No errors
 PHP CS Fixer: No issues
 ```
+
+Implementation: `src/Article/{ArticleRepository,ArticleStatus,RouteRegistrar}.php`
++ `src/AppFactory.php`. The allow-list lives in `ArticleRepository::SORT_COLUMNS`
+/ `SORT_DIRECTIONS`; the repository re-checks it before interpolating (defense in depth).
 
 ---
 
