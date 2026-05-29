@@ -93,7 +93,7 @@ WHERE user_id = ? AND email_idx = ?
 ## Test Results
 
 ```
-51 tests / 110 assertions — all PASS
+10 tests / 16 assertions — all PASS (round-trip, blind-index search, tamper→500, reindex, IDOR)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
