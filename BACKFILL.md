@@ -18,9 +18,11 @@ field trials, in FT order. Each app validates the **released** framework
 
 - **Already covered:** FT97–FT190 **(FT142 is a gap)**.
 - **Added by this workstream:** FT352 `reorderlog`, FT194 `assetlog`,
-  FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`.
-- **Resume point → FT198** `multi-currency-wallet`, then FT206+
-  (`leaderboard-ranking`, …).
+  FT195 `vaultlog`, FT196 `ticketlog`, FT197 `templatelog`, FT198 `walletlog`.
+- **Resume point → FT206** `leaderboard-ranking` (`ranklog`-style), then FT207+.
+  **FT199–FT205 need remapping** — the "first `FTxxx` marker in the howto body"
+  heuristic returned nothing for them; grep all markers (not just the first per
+  file) or check `docs/milestones/` to find their howtos before skipping.
 - Also pending: backfill the **FT142** gap.
 
 > PHPStan note: it treats repo `findById()` as pure, so a second call with the
