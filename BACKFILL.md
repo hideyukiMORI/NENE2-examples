@@ -41,13 +41,14 @@ and build howtos whose topic has no matching dir.
 ~~`inventory-management`~~ (→ `inventorylog`),
 ~~`expense-tracker`~~ (→ `expenselog`),
 ~~`budget-tracking`~~ (→ `budgetlog`, hardened past the howto's ATK findings),
-`quota-management`, `contact-management`, `habit-tracker`, `media-watchlist`,
+~~`contact-management`~~ (→ `contactlog`),
+`quota-management`, `habit-tracker`, `media-watchlist`,
 `price-history`, `shift-management`, `multilingual-content`,
 `article-relations-api`, `article-versioning-api`, `aggregate-reporting`.
 (Confirm each against the dir list before building — some may overlap a
 differently-named dir, e.g. `report*`→`reportlog`, `quota*`→`limitlog`.)
 
-- **Resume point → `contact-management`** (confirm no `contact*` dir), then down
+- **Resume point → `habit-tracker`** (confirm no `habit*` dir), then down
   the candidate list. (Verify `quota-management` doesn't overlap `limitlog`/
   `throttlelog` before building it.)
 
