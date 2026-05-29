@@ -119,7 +119,7 @@ foreach ($rawItems as $index => $rawItem) {
 ## Test Results
 
 ```
-36 tests / 79 assertions — all PASS
+11 tests / 20 assertions — all PASS
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
@@ -131,13 +131,12 @@ PHP CS Fixer — clean
 ```
 src/
   Item/
-    Item.php              — readonly value object
     ItemRepository.php    — create / list, MAX_BATCH=50 constant
     RouteRegistrar.php    — POST /batch (partial success) + GET /items
   AppFactory.php
 tests/
   Item/
-    BatchTest.php         — 36 tests covering all scenarios
+    BatchTest.php         — 11 tests covering all scenarios
 database/
   schema.sql              — items table (SQLite)
 ```
