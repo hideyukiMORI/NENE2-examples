@@ -146,7 +146,7 @@ $limit = V::queryInt($params, 'limit', 1, 100, 20);
 ## Test Results
 
 ```
-85 tests / 209 assertions — all PASS
+13 tests / 24 assertions — all PASS (one-time read, password, expiry, IDOR, mass-assignment)
 PHPStan level 8 — no errors
 PHP CS Fixer — clean
 ```
