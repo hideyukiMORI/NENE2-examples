@@ -75,14 +75,51 @@ Phase-2 batch 2 — **DONE** (all green, committed/pushed):
 `contentlog`(FT301 content-negotiation — Accept/415/problem+json),
 `unicodelog`(FT345 unicode-aware text — mb_strlen/null-byte/VULN-01..08).
 
-Phase-2 batch 3 — **candidates needing a topic-check before building (← NEXT):**
-`statslog`(FT51/243 event-analytics — compare vs `reportlog`/`agglog`; likely a
-distinct json_extract/event-log angle but verify),
-`tagfilterlog`(FT250 multi-value tag AND/OR filtering — compare vs `taglog` which is
-plain M:N tagging; the AND/OR query semantics may be genuinely new).
-For each: read the howto, `grep -m1 description` the nearest existing stem, and only
-build if the TOPIC (not just the dir name) is absent. Then re-run the gap scan for
-batch 4. Most remaining FT199–349 howtos are dups of existing `*log` dirs.
+Phase-2 batch 3 — **DONE** (all green, committed/pushed):
+`statslog`(FT51 event-analytics — json_extract/strftime/DAU, distinct from agglog),
+`tagfilterlog`(FT250 multi-value tag AND/OR filtering, distinct from taglog),
+`bulkupdatelog`(FT85 bulk status update, hardened past FT231 V-01/V-02; distinct from
+batchlog's batch-create).
+
+### ✅ DISTINCT-TOPIC BACKLOG EXHAUSTED (gap scan 2026-05-29)
+
+The final dir-vs-howto gap scan leaves ~37 howtos whose intended dir name is absent,
+but **every one maps by TOPIC to an existing `*log` dir** — building them is the exact
+near-duplicate trap this workstream exists to avoid. The mapping:
+
+| absent dir (howto) | already covered by |
+|---|---|
+| approvallog / flowlog / workflowlog / statemachinelog | stepflowlog, draftlog |
+| authlog (bearer-token) | jwtlog, tokenlog, refreshlog, oauthlog |
+| bookinglog / reservelog | reservationlog (FT216) |
+| bulklog | batchlog (FT182) |
+| creditslog / moneylog | pointlog, walletlog |
+| cursorlog | pagelog (FT100) |
+| doclog / optimisticlog / locklog | versionlog, contentvlog, optlocklog, etaglog |
+| eventstore | eventsourcelog |
+| flaglog | featureflaglog |
+| idempotencylog | deduplog (FT170, Idempotency-Key) |
+| leaderboardlog / scorelog | ranklog (FT141) |
+| linklog | bookmarklog |
+| notelog / noteslog | generic IDOR CRUD (isolationlog etc.) |
+| notiflog | notificationlog, queuelog |
+| pinverifylog | pinlog, lockoutlog, otplog, verifylog |
+| quotalog / ratelimitlog / ratelog | limitlog, throttlelog, meterlog |
+| ratinglog / feedbacklog | reviewlog |
+| reactionlog | emojilog, votelog |
+| schedulelog | pubschedulelog (FT172) |
+| softdelete / softlog | softdeletelog |
+| subscriptionlog | planlog |
+| threadlog | commentlog (FT127, threaded) |
+| treelog | hierarchylog, nestedlog |
+| webhooklog | webhookdeliverylog |
+
+**Conclusion:** the examples repo now covers every genuinely-distinct documented topic
+through FT349 that warrants a standalone example. Match any *new* howto against this
+table before building. The one judgment call left open: `ratelog`
+(sliding-window rate limiter) is a different *algorithm* from the existing fixed-window
+/ token-bucket limiters — build it only if that algorithmic distinction is deemed worth
+a dedicated example. Otherwise the backfill is complete.
 
 ### Howto bugs found & fixed via examples (good-citizen PRs)
 - **#1348 (merged)** time-tracking julianday truncation (60s→59s) → `strftime('%s')`.
