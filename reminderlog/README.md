@@ -79,16 +79,18 @@ $remindAt = V::futureDatetime($rawRemindAt, $now);
 ## Test Results
 
 ```
-PHPUnit 11.5.55 · PHP 8.4.21
+PHPUnit · PHP 8.4
 
-..........................  26 / 26 (100%)
-
-OK (26 tests, 64 assertions)
+OK (11 tests, 18 assertions)   # incl. cross-timezone past/future cases
 PHPStan level 8: No errors
 PHP CS Fixer: No issues
-
-NENE2 core: 431 tests / 999 assertions — OK (includes 2 new cross-TZ regression tests)
 ```
+
+> **Caveat (released `nene2 ^1.5` = 1.5.323):** `V::futureDatetime()` compares the
+> ATOM *strings*, which is wrong across timezone offsets, and `V::isoDatetime()`
+> does not range-check the offset (`+25:00` passes its regex). This example does
+> the future comparison with `DateTimeImmutable` and adds an offset-range guard
+> itself; a fix for the core helpers is filed against NENE2 separately.
 
 ---
 
