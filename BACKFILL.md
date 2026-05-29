@@ -106,7 +106,7 @@ near-duplicate trap this workstream exists to avoid. The mapping:
 | notelog / noteslog | generic IDOR CRUD (isolationlog etc.) |
 | notiflog | notificationlog, queuelog |
 | pinverifylog | pinlog, lockoutlog, otplog, verifylog |
-| quotalog / ratelimitlog / ratelog | limitlog, throttlelog, meterlog |
+| quotalog / ratelimitlog | limitlog, throttlelog, meterlog |
 | ratinglog / feedbacklog | reviewlog |
 | reactionlog | emojilog, votelog |
 | schedulelog | pubschedulelog (FT172) |
@@ -116,12 +116,13 @@ near-duplicate trap this workstream exists to avoid. The mapping:
 | treelog | hierarchylog, nestedlog |
 | webhooklog | webhookdeliverylog |
 
-**Conclusion:** the examples repo now covers every genuinely-distinct documented topic
-through FT349 that warrants a standalone example. Match any *new* howto against this
-table before building. The one judgment call left open: `ratelog`
-(sliding-window rate limiter) is a different *algorithm* from the existing fixed-window
-/ token-bucket limiters — build it only if that algorithmic distinction is deemed worth
-a dedicated example. Otherwise the backfill is complete.
+**Conclusion: the backfill is COMPLETE.** The examples repo (125 dirs) covers every
+genuinely-distinct documented topic through FT349 that warrants a standalone example.
+The last judgment call — `ratelog` (sliding-window rate limiter) — was **built** on its
+algorithmic merit (gradual recovery / no boundary-burst, distinct from the fixed-window
+`throttlelog`/`limitlog`). Match any *new* howto against the table above before building;
+everything currently documented is either covered by a dedicated example or is a
+deliberate near-duplicate skip.
 
 ### Howto bugs found & fixed via examples (good-citizen PRs)
 - **#1348 (merged)** time-tracking julianday truncation (60s→59s) → `strftime('%s')`.

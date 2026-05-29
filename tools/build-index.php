@@ -63,7 +63,7 @@ foreach ($entries as $dir) {
     }
 
     // Security marker — the example exercises an ATK or VULN assessment.
-    $sec = preg_match('/\bATK-|\bVULN\b|Vulnerability/i', $readme) === 1;
+    $sec = preg_match('/\bATK\b|\bVULN\b|Vulnerability/i', $readme) === 1;
 
     $rows[] = ['ft' => $ft, 'name' => $name, 'title' => $title, 'howto' => $howto, 'sec' => $sec];
 }
